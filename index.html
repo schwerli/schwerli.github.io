@@ -34,15 +34,25 @@
       </div>
     </header>
 
-    <section class="hero">
-      <div class="hero-inner container">
-        <h1 class="hero-title">Han Li</h1>
-        <p class="hero-sub">Undergraduate at Nanjing University · Tabular Data, AutoML, Code Repair</p>
-        <div class="hero-actions">
-          <a href="#about" class="btn">About</a>
-          <a href="#projects" class="btn ghost">View Projects</a>
+    <section class="intro" id="intro">
+      <div class="intro-glass">
+        <div class="intro-inner container">
+          <div class="intro-left">
+            <img class="intro-avatar" src="/images/avatar.jpg" alt="Han Li avatar" />
+          </div>
+          <div class="intro-divider" aria-hidden="true"></div>
+          <div class="intro-right">
+            <h1 class="intro-title">Han Li</h1>
+            <p class="intro-sub">Undergraduate at Nanjing University — Tabular Data, AutoML, Code Repair.</p>
+            <ul class="inline-list">
+              <li><span class="muted">Nanjing, China</span></li>
+              <li><a class="muted" href="mailto:your@email.com">Email</a></li>
+              <li><a class="muted" href="https://github.com/schwerli?tab=repositories" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+          </div>
         </div>
       </div>
+      <a href="#projects" class="intro-scroll-hint" aria-label="Scroll to projects">Scroll</a>
     </section>
 
     <main class="container">
@@ -112,29 +122,28 @@
         </p>
       </section>
 
-      <section id="projects" class="grid">
-        <article class="card">
-          <h3>项目 A — 简述一句话</h3>
-          <p>用一句话描述项目的目标、方法或成果。可附上论文/代码链接。</p>
-          <div class="links">
-            <a href="https://github.com/schwerli?tab=repositories" target="_blank" rel="noopener" class="btn">查看代码</a>
-            <a href="https://github.com/schwerli?tab=repositories" target="_blank" rel="noopener" class="btn ghost">演示</a>
+      <section id="projects" class="projects">
+        <h2>Featured Projects</h2>
+        <article class="project">
+          <div class="project-head">
+            <h3>Automated Tabular Data Pipeline</h3>
+            <a href="https://github.com/schwerli?tab=repositories" target="_blank" rel="noopener" class="inline-link">Code ↗</a>
           </div>
+          <p>End-to-end AutoML for structured data: feature engineering, model selection, HPO, and ensembling.</p>
         </article>
-        <article class="card">
-          <h3>项目 B — 简述一句话</h3>
-          <p>突出你的角色与贡献，以及对性能/准确率/用户的影响。</p>
-          <div class="links">
-            <a href="https://github.com/schwerli?tab=repositories" target="_blank" rel="noopener" class="btn">查看代码</a>
-            <a href="https://github.com/schwerli?tab=repositories" target="_blank" rel="noopener" class="btn ghost">介绍</a>
+        <article class="project">
+          <div class="project-head">
+            <h3>SWEBench Agentless Code Repair</h3>
+            <a href="https://github.com/schwerli?tab=repositories" target="_blank" rel="noopener" class="inline-link">Code ↗</a>
           </div>
+          <p>Agentless repair strategies that improve fix accuracy while reducing manual intervention.</p>
         </article>
-        <article class="card">
-          <h3>项目 C — 简述一句话</h3>
-          <p>如果暂无项目，先放占位，后续可随时补充。</p>
-          <div class="links">
-            <a href="https://github.com/schwerli?tab=repositories" target="_blank" rel="noopener" class="btn">更多</a>
+        <article class="project">
+          <div class="project-head">
+            <h3>AutoML Framework Experiments</h3>
+            <a href="https://github.com/schwerli?tab=repositories" target="_blank" rel="noopener" class="inline-link">Code ↗</a>
           </div>
+          <p>Reusable pipelines across datasets with measurable gains in performance and iteration speed.</p>
         </article>
       </section>
 
@@ -153,6 +162,13 @@
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear().toString();
+      const intro = document.getElementById('intro');
+      const onScroll = () => {
+        if (!intro) return;
+        if (window.scrollY > 120) intro.classList.add('collapsed'); else intro.classList.remove('collapsed');
+      };
+      document.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     </script>
   </body>
   </html>

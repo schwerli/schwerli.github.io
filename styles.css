@@ -4,7 +4,8 @@
   --panel: #121318;
   --text: #e6e6e6;
   --muted: #a7aab3;
-  --accent: #60a5fa;
+  --accent: #9b87f5; /* pastel purple */
+  --accent2: #f5a3c7; /* pastel pink */
   --border: #1d1f27;
 }
 @media (prefers-color-scheme: light) {
@@ -40,9 +41,9 @@ body::after {
 /* animated gradient blobs */
 body::before {
   background:
-    radial-gradient(40% 30% at 15% 10%, rgba(96,165,250,0.18), transparent 60%),
-    radial-gradient(30% 25% at 75% 0%, rgba(139,92,246,0.16), transparent 60%),
-    radial-gradient(35% 28% at 85% 60%, rgba(16,185,129,0.15), transparent 60%);
+    radial-gradient(40% 30% at 18% 8%, color-mix(in oklab, var(--accent) 25%, transparent), transparent 60%),
+    radial-gradient(32% 26% at 78% -6%, color-mix(in oklab, var(--accent2) 22%, transparent), transparent 60%),
+    radial-gradient(36% 28% at 85% 62%, rgba(255,255,255,0.06), transparent 60%);
   filter: blur(40px) saturate(120%);
   animation: float 24s ease-in-out infinite alternate;
 }
@@ -86,19 +87,36 @@ body::after {
 .nav a { color: var(--muted); text-decoration: none; margin-left: 16px; font-weight: 600; }
 .nav a:hover { color: var(--text); }
 
-/* Hero */
-.hero {
+/* Intro split layout */
+.intro {
   position: relative;
-  padding: 96px 0 72px;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 72px 0 32px;
 }
-.hero-inner { text-align: center; }
-.hero-title {
-  margin: 0 0 10px;
-  font-size: clamp(34px, 6vw, 56px);
-  letter-spacing: 0.4px;
+.intro-glass {
+  width: min(1100px, 92%);
+  border-radius: 24px;
+  border: 1px solid color-mix(in oklab, var(--accent) 15%, var(--border));
+  background: color-mix(in oklab, rgba(10,10,14,0.5) 70%, transparent);
+  backdrop-filter: blur(14px) saturate(130%);
+  box-shadow: 0 30px 80px rgba(2,6,23,0.35);
+  transition: transform 380ms ease, opacity 380ms ease;
 }
-.hero-sub { margin: 0 0 18px; color: var(--muted); font-size: clamp(14px, 2.4vw, 18px); }
-.hero-actions { display: inline-flex; gap: 12px; }
+.intro.collapsed .intro-glass { transform: translateY(-24px) scale(0.985); opacity: 0.92; }
+.intro-inner { display: grid; grid-template-columns: 1fr auto 2fr; align-items: center; gap: 28px; padding: 32px; }
+.intro-left { display: flex; justify-content: center; }
+.intro-avatar { width: clamp(220px, 28vw, 320px); height: clamp(220px, 28vw, 320px); border-radius: 999px; object-fit: cover; box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+.intro-divider { width: 1px; height: clamp(220px, 34vw, 360px); background: linear-gradient(180deg, transparent, color-mix(in oklab, var(--accent) 40%, #ffffff10), transparent); }
+.intro-title { margin: 0 0 8px; font-size: clamp(34px, 6vw, 56px); letter-spacing: 0.4px; }
+.intro-sub { margin: 0 0 14px; color: var(--muted); font-size: clamp(14px, 2.4vw, 18px); }
+.intro-scroll-hint { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); color: var(--muted); text-decoration: none; font-weight: 600; }
+@media (max-width: 900px) {
+  .intro-inner { grid-template-columns: 1fr; text-align: center; }
+  .intro-divider { display: none; }
+  .intro-left { order: -1; }
+}
 
 /* Sections */
 .card {
@@ -125,14 +143,14 @@ body::after {
 .inline-list a.muted { color: var(--muted); text-decoration: none; }
 .inline-list a.muted:hover { color: var(--text); text-decoration: underline; }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin: 22px 0;
-}
-@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+/* Projects – soft separators */
+.projects { margin: 60px 0; }
+.projects h2 { margin-bottom: 10px; }
+.project { padding: 22px 0; }
+.project + .project { border-top: 1px dashed color-mix(in oklab, var(--accent) 22%, var(--border)); }
+.project-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.inline-link { color: var(--accent); text-decoration: none; font-weight: 700; }
+.inline-link:hover { text-decoration: underline; }
 
 .links { display: flex; gap: 10px; margin-top: 12px; }
 .btn {
