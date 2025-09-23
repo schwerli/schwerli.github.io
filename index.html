@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css?v=3">
+    <link rel="stylesheet" href="/styles.css?v=4">
     <meta property="og:title" content="Han Li — Academic Homepage">
     <meta property="og:description" content="Tabular Data · AutoML · Code Repair">
     <meta property="og:type" content="website">
@@ -163,11 +163,25 @@
     <script>
       document.getElementById('year').textContent = new Date().getFullYear().toString();
       const intro = document.getElementById('intro');
+      const root = document.documentElement;
+      const setScrollVar = (t) => root.style.setProperty('--scroll', t.toFixed(3));
       const onScroll = () => {
         if (!intro) return;
-        if (window.scrollY > 120) intro.classList.add('collapsed'); else intro.classList.remove('collapsed');
+        const rect = intro.getBoundingClientRect();
+        const vh = Math.max(1, window.innerHeight);
+        // progress: 0 at top of intro, 1 when intro just out of view
+        const progress = Math.min(1, Math.max(0, (0 - rect.top) / (rect.height - vh * 0.2)));
+        setScrollVar(progress);
+        if (progress >= 0.98) {
+          document.body.classList.add('bg-paused');
+          intro.classList.add('collapsed');
+        } else {
+          document.body.classList.remove('bg-paused');
+          intro.classList.toggle('collapsed', window.scrollY > 120);
+        }
       };
       document.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
       onScroll();
     </script>
   </body>
