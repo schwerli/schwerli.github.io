@@ -80,12 +80,7 @@ body::after {
   padding: 16px 20px;
 }
 .brand { display: flex; align-items: center; gap: 14px; }
-.avatar {
-  width: 40px; height: 40px; border-radius: 12px;
-  display: grid; place-items: center;
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
-  color: white; font-weight: 800;
-}
+.avatar-img { width: 40px; height: 40px; border-radius: 999px; object-fit: cover; display: block; }
 .titles h1 { margin: 0; font-size: 20px; letter-spacing: 0.2px; }
 .subtitle { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
 .nav a { color: var(--muted); text-decoration: none; margin-left: 16px; font-weight: 600; }
