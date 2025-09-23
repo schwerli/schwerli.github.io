@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>个人主页 | Your Name</title>
+    <meta name="description" content="Your Name 的个人主页：研究方向、项目、联系方式。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <meta property="og:title" content="Your Name — 个人主页">
+    <meta property="og:description" content="研究方向、项目、联系方式">
+    <meta property="og:type" content="website">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <div class="avatar" aria-hidden="true">YN</div>
+          <div class="titles">
+            <h1>Your Name</h1>
+            <p class="subtitle">研究生｜领域关键词一 · 关键词二 · 关键词三</p>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="#about">关于</a>
+          <a href="#projects">项目</a>
+          <a href="#contact">联系</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="about" class="card">
+        <h2>关于我</h2>
+        <p>
+          我是 <strong>Your Name</strong>，目前就读于 <em>某某大学/研究机构</em>，研究方向为
+          <span class="pill">机器学习</span>
+          <span class="pill">数据可视化</span>
+          <span class="pill">系统设计</span> 等。我的兴趣在于把复杂问题变得简单且优雅。
+        </p>
+        <ul class="inline-list">
+          <li><a class="muted" href="mailto:your@email.com">your@email.com</a></li>
+          <li><a class="muted" href="https://github.com/schwerli" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a class="muted" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a class="muted" href="/files/cv.pdf" target="_blank" rel="noopener">CV</a></li>
+        </ul>
+      </section>
+
+      <section id="projects" class="grid">
+        <article class="card">
+          <h3>项目 A — 简述一句话</h3>
+          <p>用一句话描述项目的目标、方法或成果。可附上论文/代码链接。</p>
+          <div class="links">
+            <a href="#" class="btn">查看代码</a>
+            <a href="#" class="btn ghost">演示</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>项目 B — 简述一句话</h3>
+          <p>突出你的角色与贡献，以及对性能/准确率/用户的影响。</p>
+          <div class="links">
+            <a href="#" class="btn">查看代码</a>
+            <a href="#" class="btn ghost">介绍</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>项目 C — 简述一句话</h3>
+          <p>如果暂无项目，先放占位，后续可随时补充。</p>
+          <div class="links">
+            <a href="#" class="btn">更多</a>
+          </div>
+        </article>
+      </section>
+
+      <section id="contact" class="card">
+        <h2>联系</h2>
+        <p>对合作、实习或研究感兴趣，欢迎邮件联系。</p>
+        <a href="mailto:your@email.com" class="btn">发送邮件</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Your Name. 保留所有权利。</p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear().toString();
+    </script>
+  </body>
+  </html>
