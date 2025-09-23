@@ -20,13 +20,15 @@
   }
 }
 
+html { background: var(--bg); }
+
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
-  background: var(--bg);
+  background: transparent; /* allow ::before/after gradient to be visible */
   line-height: 1.6;
 }
 
@@ -37,30 +39,30 @@ body::after {
   position: fixed;
   inset: -10% -10% -10% -10%;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0; /* draw above html background */
 }
 /* Large diagonal gradient that slowly moves */
 body::before {
-  background: linear-gradient(120deg, rgba(155,135,245,0.35) 0%, rgba(245,163,199,0.30) 40%, rgba(121,201,255,0.28) 100%);
-  filter: blur(10px) saturate(120%);
+  background: linear-gradient(115deg, rgba(155,135,245,0.55) 0%, rgba(245,163,199,0.48) 45%, rgba(121,201,255,0.42) 100%);
+  filter: blur(14px) saturate(130%);
   transform: translate3d(0,0,0);
-  animation: sweep 22s ease-in-out infinite alternate;
+  animation: sweep 18s ease-in-out infinite alternate;
 }
 /* Soft motion streaks overlay, very light */
 body::after {
-  background: repeating-linear-gradient(115deg, rgba(255,255,255,0.06) 0 8px, rgba(255,255,255,0.02) 8px 32px);
-  filter: blur(40px);
-  opacity: 0.55;
+  background: repeating-linear-gradient(115deg, rgba(255,255,255,0.08) 0 8px, rgba(255,255,255,0.03) 8px 32px);
+  filter: blur(36px);
+  opacity: 0.5;
   mix-blend-mode: overlay;
-  animation: drift 30s linear infinite;
+  animation: drift 26s linear infinite;
 }
 @keyframes sweep {
-  0% { transform: translate3d(-3%, -2%, 0) scale(1.02); }
-  100% { transform: translate3d(3%, 2%, 0) scale(1.02); }
+  0% { transform: translate3d(-8%, -5%, 0) scale(1.04); }
+  100% { transform: translate3d(8%, 5%, 0) scale(1.04); }
 }
 @keyframes drift {
   0% { transform: translate3d(0,0,0); }
-  100% { transform: translate3d(-6%, -6%, 0); }
+  100% { transform: translate3d(-10%, -10%, 0); }
 }
 /* Pause animated background after intro */
 body.bg-paused::before,
