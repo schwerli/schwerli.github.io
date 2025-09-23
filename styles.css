@@ -24,10 +24,38 @@ body {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
-  background: radial-gradient(1200px 800px at 20% -10%, rgba(96,165,250,0.15), transparent 50%),
-              radial-gradient(1000px 700px at 80% -20%, rgba(139,92,246,0.12), transparent 50%),
-              var(--bg);
+  background: var(--bg);
   line-height: 1.6;
+}
+
+/* Rich background layers */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: -10% -10% -10% -10%;
+  pointer-events: none;
+  z-index: -1;
+}
+/* animated gradient blobs */
+body::before {
+  background:
+    radial-gradient(40% 30% at 15% 10%, rgba(96,165,250,0.18), transparent 60%),
+    radial-gradient(30% 25% at 75% 0%, rgba(139,92,246,0.16), transparent 60%),
+    radial-gradient(35% 28% at 85% 60%, rgba(16,185,129,0.15), transparent 60%);
+  filter: blur(40px) saturate(120%);
+  animation: float 24s ease-in-out infinite alternate;
+}
+/* subtle noise overlay */
+body::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/ filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  mix-blend-mode: soft-light;
+}
+@keyframes float {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2%, -1%, 0) scale(1.03); }
+  100% { transform: translate3d(-2%, 1%, 0) scale(1.02); }
 }
 
 .container {
@@ -62,6 +90,20 @@ body {
 .subtitle { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
 .nav a { color: var(--muted); text-decoration: none; margin-left: 16px; font-weight: 600; }
 .nav a:hover { color: var(--text); }
+
+/* Hero */
+.hero {
+  position: relative;
+  padding: 96px 0 72px;
+}
+.hero-inner { text-align: center; }
+.hero-title {
+  margin: 0 0 10px;
+  font-size: clamp(34px, 6vw, 56px);
+  letter-spacing: 0.4px;
+}
+.hero-sub { margin: 0 0 18px; color: var(--muted); font-size: clamp(14px, 2.4vw, 18px); }
+.hero-actions { display: inline-flex; gap: 12px; }
 
 /* Sections */
 .card {
