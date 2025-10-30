@@ -1,6 +1,6 @@
 /* Typography & base */
 :root {
-  --bg: #faf7f2; /* warm off-white */
+  --bg: #ffffff; /* pure white */
   --panel: rgba(255,255,255,0.06);
   --text: #0f172a;
   --muted: #475569;
@@ -11,7 +11,7 @@
 }
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #faf7f2;
+    --bg: #ffffff;
     --panel: rgba(255,255,255,0.06);
     --text: #0f172a;
     --muted: #475569;
