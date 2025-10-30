@@ -21,6 +21,8 @@
 }
 
 html { background: var(--bg); }
+/* Force pure white when requested */
+html, body { background-color: #ffffff !important; }
 
 * { box-sizing: border-box; }
 html, body { height: 100%; }
@@ -97,7 +99,7 @@ body.bg-paused::after { animation-play-state: paused; }
 .intro.collapsed .intro-glass { transform: translateY(-24px) scale(0.985); opacity: 0.92; }
 .intro-inner { display: grid; grid-template-columns: 1fr auto 2fr; align-items: center; gap: 28px; padding: 32px; }
 .intro-left { display: flex; justify-content: center; }
-.intro-avatar { width: clamp(220px, 28vw, 320px); height: clamp(220px, 28vw, 320px); border-radius: 999px; object-fit: cover; box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+.intro-avatar { width: clamp(220px, 28vw, 320px); height: clamp(220px, 28vw, 320px); border-radius: 999px; object-fit: contain; object-position: 50% 40%; background: #ffffff; padding: 6px; box-shadow: 0 12px 40px rgba(0,0,0,0.18); }
 .intro-divider { width: 1px; height: clamp(220px, 34vw, 360px); background: linear-gradient(180deg, transparent, rgba(155,135,245,0.45), transparent); }
 .intro-title { margin: 0 0 8px; font-size: clamp(34px, 6vw, 56px); letter-spacing: 0.4px; }
 .intro-sub { margin: 0 0 14px; color: var(--muted); font-size: clamp(14px, 2.4vw, 18px); }
