@@ -35,11 +35,7 @@ body {
 /* Natural sweeping gradient background (pastel purple -> pink -> blue) */
 body::before,
 body::after {
-  content: "";
-  position: fixed;
-  inset: -10% -10% -10% -10%;
-  pointer-events: none;
-  z-index: 0; /* draw above html background */
+  display: none; /* disable animated overlays for pure white background */
 }
 /* Large diagonal gradient that slowly moves */
 body::before {
