@@ -1,0 +1,262 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.92]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{9pt}{7pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{}X@{}}
+\Huge{Han Li} \\[3pt]
+\href{mailto:231220161@smail.nju.edu.cn}{231220161@smail.nju.edu.cn}
+\ $|$ \
+\href{tel:+8617391928803}{+86-173-9192-8803}
+\ $|$ \
+\href{https://github.com/schwerli}{GitHub: schwerli}
+\ $|$ \
+\href{https://scholar.google.com/citations?user=qbDL1kwAAAAJ\&hl=en}{Google Scholar}
+\ $|$ \
+\href{https://han-li-research.github.io}{Homepage} \\
+\end{tabularx}
+\vspace{0.2cm}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}} 	
+2023 - present & Bachelor's Degree in Computer Science and Technology at \textbf{Nanjing University} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	SUMMARY
+%----------------------------------------------------------------------------------------
+\section{Summary}
+Undergraduate researcher in computer science at Nanjing University, currently interning at Microsoft Research Asia (DKI), Beijing. My recent work focuses on AI for software engineering, especially code agents, long-horizon evaluation, context retrieval, and trajectory tracing/debugging. I am primarily interested in building benchmarks and analysis tools that make agent behavior more measurable, interpretable, and reliable.
+
+%----------------------------------------------------------------------------------------
+%	RESEARCH INTERESTS
+%----------------------------------------------------------------------------------------
+\section{Research Interests}
+AI for Software Engineering, Code Agents, Long-Horizon Evaluation, LLMs for Code
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\textbf{Programming Languages:} C/C++, Python, Java \\
+\textbf{Research Areas:} Code Agents, Benchmarking, Program Analysis, Machine Learning
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+\section{Work Experience}
+\vspace{-0.1cm}
+
+\begin{jobshort}{Research Intern, Microsoft Research Asia (DKI), Beijing}{2026 - present}
+\end{jobshort}
+\vspace{-0.6cm}
+
+\begin{jobshort}{Research Assistant, University College London}{2025.8 - present}
+\end{jobshort}
+\vspace{-0.6cm}
+
+\begin{jobshort}{Research Intern, Kuaishou Core Algorithm Group}{2025.9 - 2025.12}
+\end{jobshort}
+\vspace{-0.6cm}
+
+\section{Service}
+\vspace{-0.1cm}
+
+\begin{jobshort}{External Reviewer, FSE (Foundations of Software Engineering)}{2025}
+\end{jobshort}
+
+%Research Experience
+\section{Research Experience}
+
+\begin{joblong}{Long-Horizon Benchmark for Coding Agents}{2026 - present}
+\item Building a benchmark for evaluating long-horizon code-agent behavior, with emphasis on multi-step planning, tool use, and trajectory-level failure analysis
+\item Current project at Microsoft Research Asia (DKI), Beijing
+\end{joblong}
+
+\begin{joblong}{ContextBench: A Benchmark for Context Retrieval in Coding Agents}{2025.9 - present}
+\item Developed a process-oriented benchmark for evaluating context retrieval in coding agents, with gold-context annotations and intermediate retrieval metrics
+\item Constructed 1,136 issue-resolution tasks spanning 66 repositories and 8 programming languages
+\item Paper: \href{https://arxiv.org/abs/2602.05892}{arXiv:2602.05892}; under review at ICML
+\item \textit{Completed during research at University College London}
+\end{joblong}
+
+\begin{joblong}{CodeTracer: Towards Traceable Code Agent Trajectories}{2025.9 - 2025.12}
+\item Built a scalable framework that converts raw code-agent runs into hierarchical traces and localizes the earliest failure-critical stage with compact evidence retrieval
+\item Constructed CodeTraceBench from executed trajectories of four widely used code-agent frameworks over repository-level bug fixing and terminal interaction workloads
+\item Joint work completed at Kuaishou in collaboration with Link Lab; ACL submission under review
+\end{joblong}
+
+\begin{joblong}{Prometheus: Multi-Agent Software Engineering System}{2025.8 - present}
+\item Contributed to a multi-agent framework for repository-level software engineering tasks with strong performance on SWE-bench Verified
+\item Focused on agent design and engineering for reliable code-task execution
+\item Paper: \href{https://arxiv.org/abs/2507.19942}{arXiv:2507.19942}; under review at ISSTA
+\item \textit{Supervised by Prof. Ye He at University College London}
+\end{joblong}
+
+\begin{joblong}{Automated Software Bug Repair with the SWE-Forge Framework}{2025.7 - present}
+\item Developed SWE-Forge, a bug-fixing framework leveraging DNL model for automated root cause analysis
+\item Achieved 19.8\% performance uplift on SWE-bench lite benchmark
+\item \textit{Completed at Nanjing University LIP Lab}
+\end{joblong}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+\section{Selected Publications and Manuscripts}
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+\item Han Li, et al. ``ContextBench: A Benchmark for Context Retrieval in Coding Agents.'' \href{https://arxiv.org/abs/2602.05892}{arXiv:2602.05892}, under review at ICML, 2026.
+\item ``CodeTracer: Towards Traceable Code Agent Trajectories.'' ACL submission under review, joint work with Kuaishou and Link Lab, 2026.
+\item Yue Pan, et al. ``Prometheus: Towards Long-Horizon Codebase Navigation for Repository-Level Problem Solving.'' \href{https://arxiv.org/abs/2507.19942}{arXiv:2507.19942}, under review at ISSTA, 2026.
+\item Jingxuan Xu, et al. ``SWE-Compass: Towards Unified Evaluation of Agentic Coding Abilities for Large Language Models.'' \href{https://arxiv.org/abs/2511.05459}{arXiv:2511.05459}, under review at ICML, 2025.
+\item Zizheng Zhan, et al. ``KAT-Coder: A Large-Scale Agentic Code Model Trained Through Four-Stage Curriculum.'' technical report, 2025.
+\end{itemize}
+
+\vfill
+\center{\footnotesize Last updated: \today}
+
+\end{document}
