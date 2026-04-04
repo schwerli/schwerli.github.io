@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\usepackage{parskip}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Motivation Letter}}\\[0.5\baselineskip]
+    {\large \textbf{CISPA Summer Research Program Application}}\\[0.5\baselineskip]
+    \textbf{Applicant: Han Li, Nanjing University}\\
+    \textbf{Proposed Supervisors: Prof.\ Ruijie Meng and Prof.\ Andreas Zeller}
+\end{center}
+
+\vspace{0.75\baselineskip}
+
+Dear Selection Committee,
+
+\vspace{0.75\baselineskip}
+
+I am Han Li, an undergraduate student in Computer Science at Nanjing University, and I am applying to the CISPA Summer Research Program to work with Professors Ruijie Meng and Andreas Zeller on the safety and reliability of autonomous AI agents for software systems. My recent research has convinced me that as these agents gain capability and privilege, ensuring their trustworthiness is just as important as improving their effectiveness.
+
+My research began in 2024 at Nanjing University's LAMDA Lab working on tabular data, where I accelerated the ModernNCA algorithm for the TALENT toolkit---combining Neighborhood Component Analysis with modern MLPs to enhance nonlinear feature representations. This work with ensemble methods taught me rigorous foundations, but it also revealed fundamental limitations: these models operated on shallow pattern matching, lacking mechanisms for understanding context or compositional structure. When my Hiformer project achieved state-of-the-art results on classification benchmarks yet still felt constrained by fixed feature vectors, I realized real-world software engineering demanded a different paradigm entirely.
+
+Large language models offered that paradigm, but studying models like KAT-Coder, a large-scale agentic code model I helped develop at Kuaishou, showed that complex software tasks required autonomous agents capable of multi-step reasoning and strategic tool use. This insight shaped my subsequent work: Prometheus, a multi-agent system achieving 70\% on SWE-bench Verified through state-machine-controlled collaboration and currently ranked second on the SWE-bench Verified leaderboard; Hermes Terminal Agent reaching 50\% on Terminal Bench and ranking within the top ten systems; and SWE-Forge, a bug-fixing framework improving performance by 19.8\% through automated root cause analysis. At Kuaishou, I developed SWE-Compass to address evaluation limitations in software engineering benchmarks.
+
+Although these agents were effective according to standard benchmarks, they also raised safety concerns. Prometheus operates with repository write access, Hermes executes commands with user privileges, and similar systems are increasingly integrated into production workflows. On October 20, 2025, two automated AWS systems simultaneously updated the same DNS entry, cascading through 113 services. Three weeks later, Cloudflare's automated system crashed 20\% of global web traffic through duplicate entries. More troubling, research on benchmarks such as ImpossibleBench has shown that frontier models ``cheat surprisingly often''---agents delete failing tests rather than fix bugs, employing strategies from simple modification to sophisticated operator overloading. Current benchmarks may systematically miss specification-violating behavior.
+
+Professor Meng and Professor Zeller both work at the intersection of software engineering, security, and modern AI methods. Professor Meng focuses on software testing and security for systems that increasingly incorporate learning-based components, and Professor Zeller is a leading researcher in automated debugging, software analytics, and security testing. Their complementary perspectives on making complex software systems dependable align closely with the questions that motivate my work.
+
+At CISPA, I hope to study how systematic testing, analysis, and debugging techniques can be extended to autonomous agentic systems: for example, by developing methods that expose specification-violating shortcuts, characterize failure patterns around privileged operations, and provide practical guidance for hardening real deployments. My background in machine learning and in designing and implementing agent frameworks for software engineering tasks gives me the practical experience to contribute, but I lack the security expertise to pursue this rigorously. CISPA's strength in cybersecurity and software engineering, together with the guidance of Professors Meng and Zeller, would provide the ideal environment to grow into this research direction.
+
+We need verification frameworks keeping pace with capability improvements. I want to help build them.
+
+\vspace{0.75\baselineskip}
+
+Thank you for considering my application.
+
+\vspace{1\baselineskip}
+
+Sincerely,\\[0.5\baselineskip]
+Han Li\\
+Nanjing University\\
+Email: \href{mailto:231220161@smail.nju.edu.cn}{231220161@smail.nju.edu.cn}
+
+\end{document}
+
+
+
